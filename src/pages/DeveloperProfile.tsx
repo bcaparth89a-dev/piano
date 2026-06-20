@@ -75,13 +75,14 @@ export const DeveloperProfile: React.FC = () => {
             >
               <FiMail className="h-5 w-5" />
             </a>
-            <button
-              onClick={() => alert('Resume download will be initialized shortly.')}
+            <a
+              href="/Parth_Pawar_Resume.pdf"
+              download="Parth_Pawar_Resume.pdf"
               className="flex items-center space-x-1.5 px-4 py-2 bg-gradient-to-r from-[#C5A059] to-[#D4AF37] text-black font-extrabold rounded-xl hover:opacity-90 transition-all text-xs"
             >
               <FiDownload className="h-3.5 w-3.5" />
               <span>Download Resume</span>
-            </button>
+            </a>
           </div>
         </div>
       </nav>
