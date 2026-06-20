@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FiSun, FiMoon, FiMaximize, FiMinimize, FiHelpCircle, FiGithub, FiTrendingUp } from 'react-icons/fi';
+import { FiSun, FiMoon, FiMaximize, FiMinimize, FiHelpCircle, FiTrendingUp } from 'react-icons/fi';
 import { usePianoStore } from '../store/settings';
 
 interface HeaderProps {
@@ -114,17 +114,6 @@ export const Header: React.FC<HeaderProps> = ({ onOpenHelp, onOpenStats }) => {
           >
             <FiHelpCircle className="h-4.5 w-4.5" />
           </button>
-
-          {/* Github Repo Link */}
-          <a
-            href="https://github.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            title="View Code on GitHub"
-            className="hidden h-9 w-9 items-center justify-center rounded-lg border border-glassBorderLight text-textSecondaryLight hover:bg-glassHoverLight dark:border-glassBorderDark dark:text-textSecondaryDark dark:hover:bg-glassHoverDark transition-colors duration-200 sm:flex"
-          >
-            <FiGithub className="h-4.5 w-4.5" />
-          </a>
         </div>
       </div>
     </header>
