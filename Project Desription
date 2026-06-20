@@ -1,0 +1,379 @@
+# RaagAnubhuti (રાગઅનુભૂતિ) – Project Description
+
+## Overview
+
+**RaagAnubhuti (રાગઅનુભૂતિ)** is a professional-grade, interactive virtual concert grand piano application designed for modern web browsers. It combines realistic piano playback, advanced learning tools, practice analytics, recording capabilities, and an elegant user experience to help beginners and experienced musicians practice and perform directly from their browser.
+
+The application focuses on high-quality audio, smooth animations, responsive design, and educational features such as guided song playback, metronomes, chord detection, and performance scoring.
+
+---
+
+# 1. Technology Stack
+
+## Frontend Framework
+
+* **React 19**
+* **TypeScript**
+
+Provides a scalable component architecture with strong type safety and maintainability.
+
+## Build Tool
+
+* **Vite 8**
+
+Offers extremely fast development builds, Hot Module Replacement (HMR), and optimized production bundling.
+
+## Styling
+
+* **Tailwind CSS 3**
+
+Used to create a modern responsive interface with:
+
+* Glassmorphism effects
+* Custom animations
+* Premium color palettes
+* Light/Dark theme support
+
+## Audio Engine
+
+* **Tone.js 15**
+
+Built on top of the Web Audio API to provide:
+
+* High-fidelity piano playback
+* Low-latency audio scheduling
+* Sample loading and playback
+* Instrument switching
+
+## State Management
+
+* **Zustand 5**
+
+Handles persistent application state including:
+
+* Volume settings
+* Theme preferences
+* Keyboard mappings
+* Practice statistics
+* Custom songs
+* User recordings
+
+## Animations
+
+* **Framer Motion 12**
+
+Provides:
+
+* Spring animations
+* Smooth transitions
+* Staggered text effects
+* Interactive UI animations
+
+---
+
+# 2. Component Architecture
+
+## SplashScreen.tsx
+
+Acts as the application's premium loading experience.
+
+### Features
+
+* Animated ambient background
+* Logo reveal with glowing effects
+* Letter-by-letter title animation
+* Simulated loading progress
+* Tone.js asset loading indicator
+* Developer branding
+* Smooth exit transition
+
+---
+
+## Header.tsx
+
+Main navigation bar displayed at the top.
+
+### Features
+
+* Brand logo and application title
+* Web MIDI connection status
+* Practice statistics access
+* Theme switcher
+* Fullscreen toggle
+* Keyboard mapping help
+
+---
+
+## Piano.tsx & PianoKey.tsx
+
+Core piano interface rendering an interactive 88-key keyboard.
+
+### Features
+
+* Fully playable virtual piano
+* Mouse support
+* Multi-touch support
+* Computer keyboard input
+* MIDI controller compatibility
+* Falling note visualization
+* Active note highlighting
+* Scale guide visualization
+* Press animations
+
+---
+
+## Controls.tsx
+
+Configuration dashboard for customizing the playing experience.
+
+### Features
+
+* Master volume adjustment
+* Instrument selection
+* Note label visibility
+* Chord detection toggle
+* Scale guide selection
+* Root note configuration
+* Octave shifting for keyboard controls
+
+---
+
+## Metronome.tsx
+
+Timing assistant for practice sessions.
+
+### Features
+
+* Adjustable BPM
+* Tap tempo calculation
+* Audible click generation
+* Visual beat synchronization
+
+---
+
+## Recorder.tsx
+
+Records live piano performances.
+
+### Features
+
+* Real-time note recording
+* Timing and velocity capture
+* Local storage of recordings
+* Playback controls
+* Stop functionality
+* Recording deletion
+
+---
+
+## PracticeScoreboard.tsx
+
+Displays practice performance after song completion.
+
+### Metrics
+
+* Total notes played
+* Accuracy percentage
+* Current streak
+* Maximum streak
+* Overall performance grade (S, A, B, C, F)
+* Motivational feedback
+
+---
+
+## SongLibrary.tsx
+
+Interactive collection of practice songs.
+
+### Features
+
+* Built-in song library
+* Custom song support
+* Sequential note highlighting
+* Interactive play-along mode
+* Wait Mode requiring correct key presses before continuing
+
+---
+
+## SongCreator.tsx
+
+Allows users to compose and save custom songs.
+
+### Features
+
+* Input validation
+* Conversion of note sequences into structured playback data
+* Local persistence through Zustand
+
+---
+
+## KeyboardRemapper.tsx
+
+Customizes QWERTY keyboard mappings.
+
+### Features
+
+* User-defined key assignments
+* Reset to default layouts
+* Persistent configuration storage
+
+---
+
+## StatsModal.tsx
+
+Displays long-term learning analytics.
+
+### Statistics
+
+* Total notes played
+* Practice duration
+* Number of sessions
+* Last practice date
+* Key usage heatmap
+* Playing activity visualization
+
+---
+
+# 3. Application Pages
+
+## Home.tsx
+
+Primary application workspace.
+
+### Responsibilities
+
+* Displays the hero section
+* Hosts the piano interface
+* Renders controls dashboard
+* Loads metronome
+* Loads recorder
+* Displays song library
+* Displays song creator
+* Handles audio loading
+* Tracks practice sessions
+* Initializes MIDI listeners
+
+---
+
+## DeveloperProfile.tsx
+
+Professional profile page showcasing the developer.
+
+### Includes
+
+* Back navigation
+* Contact links
+* Educational information
+* Technical skills
+* Career objectives
+* Internship history
+* Interactive timeline
+* Resume download functionality
+
+---
+
+# 4. Global State Management (settings.ts)
+
+The centralized Zustand store manages both persistent and runtime application data.
+
+## Persistent Settings
+
+* Theme preference
+* Volume level
+* Instrument selection
+* Keyboard remapping
+* Saved recordings
+* Custom songs
+* Favorites
+* Practice statistics
+
+## Runtime State
+
+* Active song playback
+* Loop and shuffle controls
+* Metronome configuration
+* Active pressed keys
+* Note history
+
+## Performance Tracking
+
+* Scores
+* Hit and miss counts
+* Accuracy calculations
+* Combo streaks
+* Session statistics
+
+---
+
+# 5. Custom Hooks & Utilities
+
+## useAudio.ts
+
+Responsible for:
+
+* Loading piano samples
+* Managing Tone.js playback
+* Pitch interpolation
+* Audio effects
+* Triggering note start/stop events
+
+---
+
+## useKeyboard.ts
+
+Handles:
+
+* Global keyboard listeners
+* Key press and release events
+* QWERTY-to-note mapping
+* Sustain pedal behavior
+
+---
+
+## useMetronome.ts
+
+Provides:
+
+* Scheduled beat generation
+* BPM synchronization
+* Timing utilities
+
+---
+
+## chordDetector.ts
+
+Analyzes simultaneously played notes to identify common chord structures, including:
+
+* Major
+* Minor
+* Diminished
+* Dominant 7th
+* Suspended 4th
+* Other interval-based harmonies
+
+---
+
+# 6. Key Features
+
+* Realistic 88-key virtual piano
+* High-quality audio powered by Tone.js
+* Mouse, touch, keyboard, and MIDI input support
+* Falling notes visualization
+* Interactive song learning with Wait Mode
+* Chord detection
+* Scale guides and note highlighting
+* Metronome with tap tempo
+* Live performance recording and playback
+* Custom song creation and storage
+* Keyboard remapping
+* Practice statistics and grading
+* Heatmap-based learning analytics
+* Persistent user settings
+* Light and dark themes
+* Responsive, modern UI with premium animations
+
+---
+
+# Conclusion
+
+RaagAnubhuti (રાગઅનુભૂતિ) is a feature-rich browser-based piano learning and performance platform that blends advanced web technologies with music education. By integrating realistic sound synthesis, guided practice tools, recording capabilities, MIDI compatibility, analytics, and an elegant interface, it provides a comprehensive and immersive environment for users to learn, practice, compose, and enjoy music directly from their web browser.
